@@ -30,7 +30,7 @@ jobs:
           java-version: '8'
           cache: maven
           cache-dependency-path: todolist-goof/pom.xml
-      - name: Compile and run tests with the Log4j change
-        run: mvn -B -ntp -f todolist-goof/pom.xml -pl todolist-web-struts -am test
+      - name: Build reactor and run tests with the Log4j change
+        run: mvn -B -ntp -f todolist-goof/pom.xml -pl todolist-web-struts -am install
       - name: Report resolved Log4j dependencies
         run: mvn -B -ntp -f todolist-goof/pom.xml -pl todolist-web-struts -am dependency:tree -Dincludes=org.apache.logging.log4j
